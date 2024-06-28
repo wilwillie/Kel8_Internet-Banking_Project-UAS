@@ -14,7 +14,7 @@
     margin-bottom: 20px;
     text-align: center;
     font-size: 32px; /* memperbesar ukuran font */
-}
+} 
 
 /* Mengatur container utama */
 .container {
