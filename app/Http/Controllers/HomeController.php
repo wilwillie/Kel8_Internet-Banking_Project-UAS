@@ -16,7 +16,7 @@ class HomeController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @return void 
      */
     #public function __construct()
     #{
@@ -53,32 +53,32 @@ class HomeController extends Controller
             return back()->with('error', 'Something encountered with cash deposit. Please try again');
         }
     }
-    public function withdraw() {
-        return view('withdraw');
-    }
-    public function saveWithdraw(Request $request) {
-        $message = [
-            'min'=> 'The :attribute must be above :min INR'
-        ];
-        $validator = Validator::make($request->all(), [
-            'amount' => 'required|min:1|regex:/^\d+(\.\d{1,2})?$/'
-        ], $message)->validate();
-        $balence = $this->getBalence();
-        $amount = $request->amount;
-        if($balence < $amount) {
-            return redirect()->back()->with('error', 'Insufficient fund to withdraw');
-        }else {
-            $withdraw = new Withdraw;
-            $withdraw->user_id = Auth::user()->id;
-            $withdraw->amount = $amount;
-            $save = $withdraw->save();
-            if($save) {
-                return back()->with('success', 'Cash withdrawed successfully');
+        public function withdraw() {
+            return view('withdraw');
+        }
+        public function saveWithdraw(Request $request) {
+            $message = [
+                'min'=> 'The :attribute must be above :min INR'
+            ];
+            $validator = Validator::make($request->all(), [
+                'amount' => 'required|min:1|regex:/^\d+(\.\d{1,2})?$/'
+            ], $message)->validate();
+            $balence = $this->getBalence();
+            $amount = $request->amount;
+            if($balence < $amount) {
+                return redirect()->back()->with('error', 'Insufficient fund to withdraw');
             }else {
-                return back()->with('error', 'Something encountered with cash withdraw. Please try again');
+                $withdraw = new Withdraw;
+                $withdraw->user_id = Auth::user()->id;
+                $withdraw->amount = $amount;
+                $save = $withdraw->save();
+                if($save) {
+                    return back()->with('success', 'Cash withdrawed successfully');
+                }else {
+                    return back()->with('error', 'Something encountered with cash withdraw. Please try again');
+                }
             }
         }
-    }
     public function transfer() {
         return view('transfer');
     }
@@ -192,10 +192,10 @@ class HomeController extends Controller
         foreach($deposit as $d) {
             $balence += $d->amount;
         }
-        $withdraw = Auth::user()->withdraws()->get();
-        foreach($withdraw as $w){
-            $balence -= $w->amount;
-        }
+            $withdraw = Auth::user()->withdraws()->get();
+            foreach($withdraw as $w){
+                $balence -= $w->amount;
+            }
         $transfer = Transfer::where('transferFrom', Auth::user()->id)->orWhere('transferTo', Auth::user()->id)->get();
         $creditTransfer = $transfer->where('transferTo', Auth::user()->id);
         $debitTransfer = $transfer->where('transferFrom', Auth::user()->id);
