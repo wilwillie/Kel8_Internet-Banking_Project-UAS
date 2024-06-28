@@ -6,7 +6,7 @@
     </x-slot>
 
     <style>
-/* Mengatur gaya untuk header */
+/* Mengatur gaya header */
 .header h2 {
     font-family: 'Arial', sans-serif;
     font-weight: bold;
@@ -18,7 +18,7 @@
 
 /* Mengatur container utama */
 .container {
-    background-color: #ffffff; /* warna latar belakang putih */
+    background-color: #ffffff; /* untuk warna latar belakang putih */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* efek bayangan */
@@ -143,13 +143,13 @@
                                     <button type="button" class="close" data-dismiss="alert"></button>
                                     <strong>{{ $message }}</strong>
                                 </div>
-                                @endif
+                                @endif          
                                 @if ($message = Session::get('error'))
                                 <div class="alert alert-danger alert-block">
                                     <button type="button" class="close" data-dismiss="alert"></button>
                                     <strong>{{ $message }}</strong>
                                 </div>
-                                @endif
+                                @endif          
                                 <ul class="list-group list-unstyled">
                                     <li class="list-group-item">
                                         <h5 class="m-0">Transfer Money</h5>
