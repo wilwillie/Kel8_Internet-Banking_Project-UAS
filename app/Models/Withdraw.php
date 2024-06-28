@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Model;
 
-class Withdraw extends Model
-{
-         /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'withdraws';
-}
+    class Withdraw extends Model
+    {
+            /**
+         * The table associated with the model.
+         *
+         * @var string
+         */
+        protected $table = 'withdraws';
+    }
