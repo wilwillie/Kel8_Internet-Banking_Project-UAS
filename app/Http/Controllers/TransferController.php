@@ -12,5 +12,5 @@ class TransferController extends Controller
 
         // Return view with data if needed
         return view('transfer.index');
-    }
+    }  
 }
