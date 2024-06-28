@@ -120,7 +120,7 @@
     background-color: rgba(255, 255, 255, 0.075);
 }
 
-/* Mengatur media query untuk tampilan responsif */
+/* Mengatur media query untuk tampilan responsif */ 
 @media (max-width: 576px) {
     .col-md-7 {
         flex: 0 0 100%;
