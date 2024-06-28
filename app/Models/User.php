@@ -49,9 +49,9 @@ class User extends Authenticatable
     public function deposits() {
         return $this->hasMany('App\Models\Deposits');
     }
-    public function withdraws() {
-        return $this->hasMany('App\Models\Withdraw');
-    }
+        public function withdraws() {
+            return $this->hasMany('App\Models\Withdraw');
+        }
     public function transfers() {
         return $this->hasMany('App\Models\Transfer');
     }
