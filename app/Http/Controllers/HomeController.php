@@ -33,7 +33,7 @@ class HomeController extends Controller
         $balence = $this->getBalence();
         return view('home', compact('balence'));
     }
-    public function deposit() {
+    public function deposit() {     
         return view('deposit');
     }
     public function saveDeposit(Request $request) {
