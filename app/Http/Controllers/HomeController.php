@@ -131,7 +131,7 @@ class HomeController extends Controller
                 'details' => 'Deposit',
                 'balence' => number_format($balence, 2)
             ];
-        }   
+        }    
         $withdraw = Auth::user()->withdraws()->get();
 
         foreach($withdraw as $w) {
@@ -154,7 +154,7 @@ class HomeController extends Controller
                 'datetime' => $ct->created_at,
                 'amount' => number_format($ct->amount, 2),
                 'type' => 'Credit',
-                'details' => 'Transfer from '.$user->email,
+                'details' => 'Receive Money',
                 'balence' => number_format($balence, 2)
             ];
         }
